@@ -11,7 +11,7 @@ _A front-end methodology for building modular, native-first web interfaces_
 /*Is*/let ethos = "minimal & modular";
 ```
 
-Islet is a front-end methodology that treats the web platform itself as the primary framework. It aims to minimize abstractions by relying on native web technologies (HTML, CSS, JS) and Web APIs instead of heavy abstractions like large frameworks or libraries.
+Islet is a front-end methodology that treats the web platform itself as the primary framework. It aims to minimize abstractions by relying on native web technologies (HTML, CSS, JS) and [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) instead of heavy abstractions like large frameworks or libraries.
 
 The methodology focuses on reducing unnecessary tooling while preserving a strong developer experience. It introduces conventions that make codebases scalable without framework lock-in, helping applications stay lightweight, performant, and backward-compatible as standards evolve.
 
@@ -21,7 +21,7 @@ To support this, the approach incorporates a set of methods, which are the mecha
 
 ### Islands
 
-Islet promotes the use of **Islands** which are inspired by the Islands Architecture pattern. Islands are dynamic components that encapsulate behavior and state for a specific part of the UI. Unlike traditional components, islands defined in JavaScript are not self-contained units; instead, they enhance static HTML structures with interactivity.
+Islet promotes the use of **Islands** which are inspired by the [Islands Architecture](https://jasonformat.com/islands-architecture) pattern. Islands are dynamic components that encapsulate behavior and state for a specific part of the UI. Unlike traditional components, islands defined in JavaScript are not self-contained units; instead, they enhance static HTML structures with interactivity.
 
 #### Defining Islands
 
@@ -148,9 +148,9 @@ Developers are free to plug in libraries like [Preact Signals Core](https://gith
 
 Islet emphasizes native CSS for styling, avoiding CSS-in-JS or other abstractions.
 
-[RSCSS (Reasonable System for CSS Stylesheet Structure)](https://rstacruz.github.io/rscss/) is used as a guideline for writing maintainable and scalable CSS. RSCSS is similar to BEM but leverages cascading and specificity rather than avoiding them.
+[RSCSS (Reasonable System for CSS Stylesheet Structure)](https://rstacruz.github.io/rscss/) is used as a guideline for writing maintainable and scalable CSS. RSCSS is similar to [BEM (Block, Element, Modifier)](https://bem.info/) but leverages cascading and specificity rather than avoiding them.
 
-A few adjustments are made to RSCSS for Islet, including:
+A few adjustments are made to RSCSS for Islet, to better align with [islands](#islands):
 
 - Islands are treated as RSCSS "components."
 - Styling islands should be done with element selectors instead of class names since custom elements provide unique selectors.
@@ -167,8 +167,8 @@ Inspired by [htmx](https://htmx.org/), Islet prefers using hypermedia-rich HTML 
 
 **Why this approach?**
 
-- Leverages Server-Side Templating: Handles dynamic content generation, allowing the server to send HTML fragments that can be directly injected into the DOM.
-- Progressive Enhancement: Ensures functionality even without JavaScript.
+- Leverages [Server-Side Templating](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Web_frameworks#rendering_data): Handles dynamic content generation, allowing the server to send HTML fragments that can be directly injected into the DOM.
+- [Progressive Enhancement](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement): Ensures functionality even without JavaScript.
 - Seamless Integration: Since our [islands](#islands) utilize custom elements, any server-sent HTML that contains these elements will automatically gain their behavior upon insertion into the DOM.
 
 > [!NOTE]
